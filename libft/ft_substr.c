@@ -1,0 +1,27 @@
+#include <stddef.h>
+#include <stdlib.h>
+char *ft_substr(char const *s, unsigned int start, size_t len)
+{
+    char *sub;
+    void *suf;
+    size_t c;
+
+    sub = malloc(len + 1);
+    if (sub == 0)
+        return (0);
+    c = 0;
+    while (s[start] && c < len)
+    {
+        sub[c] = s[start];
+        start++;
+        c++;
+    }
+    sub[c] = 0;
+    c++;
+    if (c <= len)
+    {
+        suf = sub + c;
+        free(suf);
+    }
+    return (sub);
+}
