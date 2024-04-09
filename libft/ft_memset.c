@@ -1,13 +1,26 @@
-#include <stddef.h>
-void *ft_memset(void *s, int c, size_t n)
-{
-    char *ptr = (char *)s;
-    size_t i = 0;
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ptelo-de <ptelo-de@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/04/09 21:05:29 by ptelo-de          #+#    #+#             */
+/*   Updated: 2024/04/09 21:05:30 by ptelo-de         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-    while (i < n && ptr[i])
-    {
-        ptr[i] = c;
-        i++;
-    }
-    return (s);
+#include <stddef.h>
+
+void	*ft_memset(void *s, int c, size_t n)
+{
+	char *ptr = (char *)s;
+	size_t i = 0;
+
+	while (i < n && ptr[i])
+	{
+		ptr[i] = c;
+		i++;
+	}
+	return (s);
 }

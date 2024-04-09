@@ -1,13 +1,26 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ptelo-de <ptelo-de@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/04/09 18:59:27 by ptelo-de          #+#    #+#             */
+/*   Updated: 2024/04/09 18:59:37 by ptelo-de         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stddef.h>
-char *ft_strchr(const char *s, int c)
+
+char	*ft_strchr(const char *s, int c)
 {
-    size_t i;
-    i = 0;
-    while(s[i])
-    {
-        if (s[i] == c)
-            return ((char *)(s +i));
-        i++;
-    }
-    return (NULL);
+	size_t i;
+	i = 0;
+	while (s[i])
+	{
+		if (s[i] == c)
+			return ((char *)(s + i));
+		i++;
+	}
+	return (NULL);
 }

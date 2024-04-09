@@ -1,13 +1,26 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ptelo-de <ptelo-de@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/04/09 21:04:55 by ptelo-de          #+#    #+#             */
+/*   Updated: 2024/04/09 21:04:56 by ptelo-de         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stddef.h>
 #include <unistd.h>
-void ft_putstr_fd(char *s, int fd)
+
+void	ft_putstr_fd(char *s, int fd)
 {
-    size_t i;
-    
-    i = 0;
-    while(s[i])
-    {
-        write(fd, &s[i], 1);
-        i++;
-    }
+	size_t i;
+
+	i = 0;
+	while (s[i])
+	{
+		write(fd, &s[i], 1);
+		i++;
+	}
 }

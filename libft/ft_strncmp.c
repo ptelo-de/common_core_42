@@ -1,11 +1,24 @@
-#include <stddef.h>
-int ft_strncmp(const char *s1, const char *s2, size_t n)
-{
-    size_t i;
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ptelo-de <ptelo-de@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/04/09 21:10:34 by ptelo-de          #+#    #+#             */
+/*   Updated: 2024/04/09 21:10:35 by ptelo-de         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-    i = 0;
-    n--;
-    while ( s1[i] == s2[i] && i < n)
-        i++;
-    return (s1[i] - s2[i]);
+#include <stddef.h>
+
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
+{
+	size_t i;
+
+	i = 0;
+	n--;
+	while (s1[i] == s2[i] && i < n)
+		i++;
+	return (s1[i] - s2[i]);
 }

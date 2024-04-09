@@ -1,17 +1,28 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ptelo-de <ptelo-de@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/04/09 21:07:21 by ptelo-de          #+#    #+#             */
+/*   Updated: 2024/04/09 21:07:24 by ptelo-de         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stddef.h>
 #include <stdio.h>
 
-void ft_bzero(void *s, size_t n)
+void	ft_bzero(void *s, size_t n)
 {
-    char *ptr;
-    size_t i;
-    
-    ptr = (char *)s;
-    i = 0;
-    while(n > i)
-    {
-        ptr[i] = 0;
-        i++;
-    }
-}
+	char	*ptr;
+	size_t	i;
 
+	ptr = (char *)s;
+	i = 0;
+	while (n > i)
+	{
+		ptr[i] = 0;
+		i++;
+	}
+}
