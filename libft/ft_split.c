@@ -6,7 +6,7 @@
 /*   By: ptelo-de <ptelo-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 21:04:28 by ptelo-de          #+#    #+#             */
-/*   Updated: 2024/04/09 21:04:43 by ptelo-de         ###   ########.fr       */
+/*   Updated: 2024/04/10 21:19:52 by ptelo-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-char	*ft_strndup(const char *s, size_t n)
+static char	*ft_strndup(const char *s, size_t n)
 {
 	size_t	i;
 	char	*d;
@@ -31,7 +31,7 @@ char	*ft_strndup(const char *s, size_t n)
 	d[i] = 0;
 	return (d);
 }
-static size_t	ft_count_words(char const *s, char c);
+
 static size_t	ft_count_words(char const *s, char c)
 {
 	size_t	occ;
@@ -50,6 +50,7 @@ static size_t	ft_count_words(char const *s, char c)
 	}
 	return (occ);
 }
+
 char	**ft_split(char const *s, char c)
 {
 	size_t	rl;
@@ -59,10 +60,10 @@ char	**ft_split(char const *s, char c)
 	size_t	k;
 
 	rl = ft_count_words(s, c);
-	r = malloc(8 * (rl + 1));
+	r = malloc(sizeof(char *) * (rl + 1));
 	i = 0;
 	k = 0;
-	if (r == 0)
+	if (!r)
 		return (0);
 	while (s[i])
 	{
@@ -72,45 +73,12 @@ char	**ft_split(char const *s, char c)
 			while (s[i + j] && s[i + j] != c)
 				j++;
 			r[k] = ft_strndup(s + i, j);
-			if (k == 1)
-			{
-				r[k] = NULL;
-			}
-			if (r[k] == NULL) // Check if ft_strndup failed
-			{
-				// Free previously allocated memory and return NULL
-				while (k > 0)
-					free(r[--k]);
-				free(r);
-				return (NULL);
-			}
 			k++;
 			i += j;
 		}
 		i++;
 	}
 	r[k] = 0;
-	i = 0;
-	/*while(i < k)
-	{
-		//tirar isto
-		if (i == 1)
-		{
-			r[i]= NULL;
-		}
-		if (r[i] == 0)
-		{
-			j = i;
-			while(0 < j)
-			{
-				free(r[j - 1]);
-				j--;
-			}
-			free(r);
-			return (0);
-		}
-		i++;
-	}*/
 	return (r);
 }
 int	main(void)
@@ -128,5 +96,12 @@ int	main(void)
 			printf("%s\n", re[i]);
 			i++;
 		}
+		i = 0;
+		while (re[i])
+		{
+			free(re[i]);
+			i++;
+		}
 	}
+	free(re);
 }

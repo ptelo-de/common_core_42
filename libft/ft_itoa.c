@@ -6,7 +6,7 @@
 /*   By: ptelo-de <ptelo-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 21:06:00 by ptelo-de          #+#    #+#             */
-/*   Updated: 2024/04/09 21:06:01 by ptelo-de         ###   ########.fr       */
+/*   Updated: 2024/04/09 22:12:24 by ptelo-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,39 +14,49 @@
 
 void	*ft_calloc(size_t nmemb, size_t size);
 
-char	*ft_itoa(int n)
+void	ft_bzero(void *s, size_t n);
+
+size_t	ft_countchr(int n)
 {
-	int j = n;
-	char *r;
-	size_t rl = 0;
-	size_t i = 0;
-	if (n == -2147483648)
-		return ("-2147483648");
+	size_t	rl;
+	int		j;
+
+	rl = 0;
+	j = n;
 	while (j)
 	{
 		rl++;
 		j = j / 10;
 	}
 	if (n < 0)
-	{
 		rl++;
-		j = -n;
-	}
-	else
-		j = n;
+	return (rl);
+}
+
+char	*ft_itoa(int n)
+{
+	char	*r;
+	size_t	rl;
+	size_t	i;
+
+	rl = ft_countchr(n);
+	i = 0;
+	if (n == -2147483648)
+		return ("-2147483648");
 	r = (char *)ft_calloc(rl + 1, 1);
 	if (n < 0)
 	{
 		r[i] = '-';
 		i++;
+		n = -n;
 	}
 	rl--;
 	while (rl > i)
 	{
-		r[rl] = (48 + j % 10);
+		r[rl] = (48 + n % 10);
 		rl--;
-		j /= 10;
+		n /= 10;
 	}
-	r[i] = 48 + j % 10;
+	r[i] = 48 + n % 10;
 	return (r);
 }

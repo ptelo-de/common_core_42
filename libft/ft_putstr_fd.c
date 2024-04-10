@@ -6,7 +6,7 @@
 /*   By: ptelo-de <ptelo-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 21:04:55 by ptelo-de          #+#    #+#             */
-/*   Updated: 2024/04/09 21:04:56 by ptelo-de         ###   ########.fr       */
+/*   Updated: 2024/04/10 18:38:00 by ptelo-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 void	ft_putstr_fd(char *s, int fd)
 {
-	size_t i;
+	size_t	i;
 
 	i = 0;
 	while (s[i])

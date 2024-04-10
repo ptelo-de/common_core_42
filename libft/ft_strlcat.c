@@ -6,30 +6,20 @@
 /*   By: ptelo-de <ptelo-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 21:07:55 by ptelo-de          #+#    #+#             */
-/*   Updated: 2024/04/09 21:07:56 by ptelo-de         ###   ########.fr       */
+/*   Updated: 2024/04/10 20:48:59 by ptelo-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
 #include <stdio.h>
 
-static size_t	ft_strlen(const char *s);
-static size_t	ft_strlen(const char *s)
-{
-	size_t	i;
-
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
-}
-
 size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
-	size_t total;
-	size_t i;
-	size_t lsrc;
-	size_t ldst;
+	size_t	total;
+	size_t	i;
+	size_t	lsrc;
+	size_t	ldst;
+
 	ldst = ft_strlen(dst);
 	lsrc = ft_strlen(src);
 	total = lsrc + ldst;

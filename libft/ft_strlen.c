@@ -6,7 +6,7 @@
 /*   By: ptelo-de <ptelo-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 21:08:12 by ptelo-de          #+#    #+#             */
-/*   Updated: 2024/04/09 21:08:18 by ptelo-de         ###   ########.fr       */
+/*   Updated: 2024/04/10 20:36:48 by ptelo-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 size_t	ft_strlen(const char *s)
 {
-	size_t i;
+	size_t	i;
+
 	i = 0;
 	while (s[i])
 		i++;

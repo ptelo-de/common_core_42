@@ -6,7 +6,7 @@
 /*   By: ptelo-de <ptelo-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 21:12:51 by ptelo-de          #+#    #+#             */
-/*   Updated: 2024/04/09 21:12:59 by ptelo-de         ###   ########.fr       */
+/*   Updated: 2024/04/10 20:54:09 by ptelo-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	char *sub;
-	void *suf;
-	size_t c;
+	char	*sub;
+	void	*suf;
+	size_t	c;
 
 	sub = malloc(len + 1);
 	if (sub == 0)
