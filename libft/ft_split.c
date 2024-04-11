@@ -6,7 +6,7 @@
 /*   By: ptelo-de <ptelo-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 21:04:28 by ptelo-de          #+#    #+#             */
-/*   Updated: 2024/04/10 21:19:52 by ptelo-de         ###   ########.fr       */
+/*   Updated: 2024/04/11 13:57:17 by ptelo-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,8 @@ static size_t	ft_count_words(char const *s, char c)
 	{
 		if (i == 0 && s[i] != c)
 			occ++;
-		else if ((s[i] == c && i != 0 && s[i - 1] != c) || (s[i] != c && s[i
-				+ 1] == 0))
+		else if ((s[i] == c && i != 0 && s[i - 1] != c) || (s[i] != c && \
+			s[i + 1] == 0))
 			occ++;
 		i++;
 	}
@@ -53,41 +53,44 @@ static size_t	ft_count_words(char const *s, char c)
 
 char	**ft_split(char const *s, char c)
 {
-	size_t	rl;
+	int		rl;
 	char	**r;
-	size_t	i;
-	size_t	j;
-	size_t	k;
+	int		i;
+	int		j;
+	int		k;
 
 	rl = ft_count_words(s, c);
 	r = malloc(sizeof(char *) * (rl + 1));
-	i = 0;
-	k = 0;
 	if (!r)
 		return (0);
-	while (s[i])
+	i = -1;
+	k = 0;
+	while (s[++i])
 	{
 		if (s[i] != c && (i == 0 || s[i - 1] == c))
 		{
 			j = 0;
 			while (s[i + j] && s[i + j] != c)
 				j++;
-			r[k] = ft_strndup(s + i, j);
-			k++;
+			r[k++] = ft_strndup(s + i, j);
 			i += j;
 		}
-		i++;
 	}
 	r[k] = 0;
 	return (r);
 }
+/*
 int	main(void)
 {
+	char	*s1;
+	char	c;
+	char	**re;
+	int		i;
+
 	// char *s = "";
-	char *s1 = "hellohellaah";
-	char c = 'h';
-	char **re;
-	int i = 0;
+	s1 = "hellohellaah";
+	c = 'h';
+	i = 0;
 	re = ft_split(s1, c);
 	if (re)
 	{
@@ -105,3 +108,4 @@ int	main(void)
 	}
 	free(re);
 }
+*/
