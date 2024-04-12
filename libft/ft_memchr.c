@@ -6,7 +6,7 @@
 /*   By: ptelo-de <ptelo-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 21:05:56 by ptelo-de          #+#    #+#             */
-/*   Updated: 2024/04/11 17:41:45 by ptelo-de         ###   ########.fr       */
+/*   Updated: 2024/04/12 18:06:12 by ptelo-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	while (i < n)
 	{
 		if (s1[i] == c)
-			return (s1 + i - 1);
+			return (s1 + i);
 		i++;
 	}
 	return (NULL);
