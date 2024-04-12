@@ -6,13 +6,11 @@
 /*   By: ptelo-de <ptelo-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 21:05:06 by ptelo-de          #+#    #+#             */
-/*   Updated: 2024/04/10 18:37:29 by ptelo-de         ###   ########.fr       */
+/*   Updated: 2024/04/12 14:43:21 by ptelo-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void	ft_putchar_fd(char c, int fd);
+#include "libft.h"
 
 void	ft_putnbr_fd(int n, int fd)
 {

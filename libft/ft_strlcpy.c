@@ -6,11 +6,11 @@
 /*   By: ptelo-de <ptelo-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 21:08:05 by ptelo-de          #+#    #+#             */
-/*   Updated: 2024/04/10 20:36:34 by ptelo-de         ###   ########.fr       */
+/*   Updated: 2024/04/11 17:54:32 by ptelo-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include "libft.h"
 
 size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 {

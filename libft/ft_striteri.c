@@ -6,7 +6,7 @@
 /*   By: ptelo-de <ptelo-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 18:58:34 by ptelo-de          #+#    #+#             */
-/*   Updated: 2024/04/10 20:48:09 by ptelo-de         ###   ########.fr       */
+/*   Updated: 2024/04/11 17:19:41 by ptelo-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 	i = 0;
 	while (s[i])
 	{
-		f(i, s[i]);
+		f(i, s);
 		i++;
 	}
 }

@@ -6,13 +6,11 @@
 /*   By: ptelo-de <ptelo-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 21:11:06 by ptelo-de          #+#    #+#             */
-/*   Updated: 2024/04/10 20:51:26 by ptelo-de         ###   ########.fr       */
+/*   Updated: 2024/04/12 14:48:28 by ptelo-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
-
-size_t	ft_strlen(const char *s);
+#include "libft.h"
 
 char	*ft_strrchr(const char *s, int c)
 {
@@ -23,7 +21,7 @@ char	*ft_strrchr(const char *s, int c)
 	while (l >= 0)
 	{
 		if (s[l] == c)
-			return (s + l);
+			return ((char *)s + l);
 		l--;
 	}
 	return (0);

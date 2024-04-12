@@ -6,11 +6,11 @@
 /*   By: ptelo-de <ptelo-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 21:05:56 by ptelo-de          #+#    #+#             */
-/*   Updated: 2024/04/10 18:31:44 by ptelo-de         ###   ########.fr       */
+/*   Updated: 2024/04/11 17:41:45 by ptelo-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include "libft.h"
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {

@@ -1,1 +1,0 @@
-ft_split seg fault, linhas a mais ;/

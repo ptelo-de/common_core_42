@@ -6,11 +6,11 @@
 /*   By: ptelo-de <ptelo-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 21:10:34 by ptelo-de          #+#    #+#             */
-/*   Updated: 2024/04/10 20:37:25 by ptelo-de         ###   ########.fr       */
+/*   Updated: 2024/04/12 14:47:02 by ptelo-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include "libft.h"
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {

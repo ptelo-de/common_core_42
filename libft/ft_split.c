@@ -5,14 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ptelo-de <ptelo-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/09 21:04:28 by ptelo-de          #+#    #+#             */
-/*   Updated: 2024/04/11 13:57:17 by ptelo-de         ###   ########.fr       */
+/*   Created: 2024/04/12 14:21:59 by ptelo-de          #+#    #+#             */
+/*   Updated: 2024/04/12 14:44:26 by ptelo-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
-#include <stdio.h>
-#include <stdlib.h>
+#include "libft.h"
 
 static char	*ft_strndup(const char *s, size_t n)
 {
@@ -79,7 +77,7 @@ char	**ft_split(char const *s, char c)
 	r[k] = 0;
 	return (r);
 }
-/*
+
 int	main(void)
 {
 	char	*s1;
@@ -96,7 +94,7 @@ int	main(void)
 	{
 		while (re[i])
 		{
-			printf("%s\n", re[i]);
+			printf("testing ft_split: %s\n", re[i]);
 			i++;
 		}
 		i = 0;
@@ -108,4 +106,3 @@ int	main(void)
 	}
 	free(re);
 }
-*/

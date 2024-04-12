@@ -6,14 +6,11 @@
 /*   By: ptelo-de <ptelo-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 21:10:47 by ptelo-de          #+#    #+#             */
-/*   Updated: 2024/04/10 20:56:34 by ptelo-de         ###   ########.fr       */
+/*   Updated: 2024/04/11 17:58:15 by ptelo-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
-#include <stdlib.h>
-
-size_t	ft_strlen(const char *s);
+#include "libft.h"
 
 char	*ft_strdup(const char *s)
 {

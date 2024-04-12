@@ -6,13 +6,11 @@
 /*   By: ptelo-de <ptelo-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 21:10:51 by ptelo-de          #+#    #+#             */
-/*   Updated: 2024/04/10 20:51:00 by ptelo-de         ###   ########.fr       */
+/*   Updated: 2024/04/11 17:57:45 by ptelo-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
-
-size_t	ft_strlen(const char *s);
+#include "libft.h"
 
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {

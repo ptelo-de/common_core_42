@@ -6,11 +6,11 @@
 /*   By: ptelo-de <ptelo-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 21:05:40 by ptelo-de          #+#    #+#             */
-/*   Updated: 2024/04/10 18:32:29 by ptelo-de         ###   ########.fr       */
+/*   Updated: 2024/04/11 17:48:58 by ptelo-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include "libft.h"
 
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {

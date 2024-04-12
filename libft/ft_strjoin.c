@@ -6,13 +6,11 @@
 /*   By: ptelo-de <ptelo-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 21:07:45 by ptelo-de          #+#    #+#             */
-/*   Updated: 2024/04/10 20:47:42 by ptelo-de         ###   ########.fr       */
+/*   Updated: 2024/04/11 17:58:03 by ptelo-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-
-size_t	ft_strlen(const char *s);
+#include "libft.h"
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
