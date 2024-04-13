@@ -6,7 +6,7 @@
 /*   By: ptelo-de <ptelo-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 21:11:06 by ptelo-de          #+#    #+#             */
-/*   Updated: 2024/04/12 14:48:28 by ptelo-de         ###   ########.fr       */
+/*   Updated: 2024/04/13 19:17:28 by ptelo-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ char	*ft_strrchr(const char *s, int c)
 	int	l;
 
 	l = ft_strlen(s);
-	l--;
 	while (l >= 0)
 	{
 		if (s[l] == c)

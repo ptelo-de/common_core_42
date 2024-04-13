@@ -6,14 +6,15 @@
 /*   By: ptelo-de <ptelo-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 21:06:55 by ptelo-de          #+#    #+#             */
-/*   Updated: 2024/04/09 21:38:30 by ptelo-de         ###   ########.fr       */
+/*   Updated: 2024/04/13 21:14:13 by ptelo-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
 int	ft_isalnum(int c)
 {
-	if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || ('0' >= c
-			&& '9' <= c))
+	if (!ft_isalpha(c) || !ft_isdigit(c))
 		return (1);
 	return (0);
 }

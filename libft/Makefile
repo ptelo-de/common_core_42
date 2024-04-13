@@ -7,10 +7,17 @@ OBJS = $(SRCS:.c=.o)
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
-all: $(NAME)
+%.o: %.c
+	@$(CC) $(CFLAGS) -c $< -o $@ 
 
+all: message $(NAME)
+
+message:
+	@echo "compiling $(NAME) ..."
+	
 $(NAME): $(OBJS)
-	@ar rsc $(NAME) $(OBJS) 
+	@ar rsc $(NAME) $(OBJS)
+	@echo "compilled"
 
 clean:
 	@rm -f $(OBJS)

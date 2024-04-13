@@ -6,7 +6,7 @@
 /*   By: ptelo-de <ptelo-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 21:07:55 by ptelo-de          #+#    #+#             */
-/*   Updated: 2024/04/12 22:27:59 by ptelo-de         ###   ########.fr       */
+/*   Updated: 2024/04/13 18:43:53 by ptelo-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,16 @@
 
 size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
-	size_t	total;
 	size_t	i;
 	size_t	lsrc;
 	size_t	ldst;
 
-	ldst = sizeof(dst);
+	ldst = ft_strlen(dst);
 	lsrc = ft_strlen(src);
-	total = lsrc + ldst;
 	i = 0;
-	if (ldst < size - 1 && size)
+	if (size <= ldst)
+		return (size + lsrc);
+	else
 	{
 		while (i < (size - ldst - 1) && src[i])
 		{
@@ -31,14 +31,12 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 			i++;
 		}
 		dst[ldst + i] = '\0';
-		return (total);
+		return (ldst + lsrc);
 	}
-	else
-		return (size + lsrc);
 }
-#include <string.h>
+/* #include <string.h>
 
-int		main()
+int	main(void)
 {
 	char	*dest;
 
@@ -46,9 +44,7 @@ int		main()
 	if (!(dest = (char *)malloc(sizeof(*dest) * 15)))
 		return (0);
 	memset(dest, 0, 15);
-	memset(dest, 'r', 6);
+	memset(dest, 'r', 14);
 	//printf("%s\n", dest);
 		printf("%zu",ft_strlcat(dest, "lorem ipsum dolor sit amet", 15));
-		write(1, "\n", 1);
-		write(1, dest, 15);
-}
+} */
