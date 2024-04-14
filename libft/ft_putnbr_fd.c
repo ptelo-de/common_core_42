@@ -6,7 +6,7 @@
 /*   By: ptelo-de <ptelo-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 21:05:06 by ptelo-de          #+#    #+#             */
-/*   Updated: 2024/04/12 14:43:21 by ptelo-de         ###   ########.fr       */
+/*   Updated: 2024/04/14 10:54:12 by ptelo-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,11 @@ void	ft_putnbr_fd(int n, int fd)
 	if (n < 0)
 	{
 		ft_putchar_fd('-', fd);
-		j = -n;
+		j = (long)(n);
+		j *= -1;
 	}
 	else
-		j = n;
+		j = (long)n;
 	if (j <= 9)
 		ft_putchar_fd(j + 48, fd);
 	else
@@ -31,3 +32,7 @@ void	ft_putnbr_fd(int n, int fd)
 		ft_putnbr_fd(j % 10, fd);
 	}
 }
+/* int main()
+{
+	ft_putnbr_fd(-2147483648, 1);
+} */

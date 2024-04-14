@@ -6,7 +6,7 @@
 /*   By: ptelo-de <ptelo-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/12 14:22:40 by ptelo-de          #+#    #+#             */
-/*   Updated: 2024/04/12 15:07:15 by ptelo-de         ###   ########.fr       */
+/*   Updated: 2024/04/14 11:44:18 by ptelo-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ static size_t	ft_countchr(int n)
 
 	rl = 0;
 	j = n;
+	if (!j)
+		return (1);
 	while (j)
 	{
 		rl++;

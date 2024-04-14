@@ -6,7 +6,7 @@
 /*   By: ptelo-de <ptelo-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/12 14:21:59 by ptelo-de          #+#    #+#             */
-/*   Updated: 2024/04/12 15:17:02 by ptelo-de         ###   ########.fr       */
+/*   Updated: 2024/04/14 16:25:37 by ptelo-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static char	*ft_strndup(const char *s, size_t n)
 		d[i] = s[i];
 		i++;
 	}
-	d[i] = 0;
+	d[i] = '\0';
 	return (d);
 }
 
@@ -74,13 +74,15 @@ char	**ft_split(char const *s, char c)
 			i += j;
 		}
 	}
-	r[k] = 0;
+	r[k] = NULL;
 	return (r);
 }
+
+
 /* 
 int	main(void)
 {
-	char	*s1;
+ 	char	*s1;
 	char	c;
 	char	**re;
 	int		i;
@@ -104,6 +106,5 @@ int	main(void)
 			i++;
 		}
 	}
-	free(re);
-}
- */
+	free(re); 
+	*/
