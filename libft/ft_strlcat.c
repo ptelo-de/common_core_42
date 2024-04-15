@@ -6,7 +6,7 @@
 /*   By: ptelo-de <ptelo-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 21:07:55 by ptelo-de          #+#    #+#             */
-/*   Updated: 2024/04/13 18:43:53 by ptelo-de         ###   ########.fr       */
+/*   Updated: 2024/04/15 16:16:44 by ptelo-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	size_t	lsrc;
 	size_t	ldst;
 
+	if ((!dst || !src) && !size)
+		return (0);
 	ldst = ft_strlen(dst);
 	lsrc = ft_strlen(src);
 	i = 0;

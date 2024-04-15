@@ -6,7 +6,7 @@
 /*   By: ptelo-de <ptelo-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 21:05:36 by ptelo-de          #+#    #+#             */
-/*   Updated: 2024/04/11 17:49:21 by ptelo-de         ###   ########.fr       */
+/*   Updated: 2024/04/15 14:00:06 by ptelo-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,16 @@
 
 void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-	char	*s;
-	char	*d;
+	unsigned char	*s;
+	unsigned char	*d;
 	size_t	i;
 
-	s = (char *)src;
-	d = (char *)dest;
+ 	if (!dest && !src)
+		return (NULL);
+	s = (unsigned char *)src;
+	d = (unsigned char *)dest;
 	i = 0;
-	while (i < n && d >= s)
+	while (i < n)
 	{
 		d[i] = s[i];
 		i++;

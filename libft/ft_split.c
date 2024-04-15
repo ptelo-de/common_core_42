@@ -6,7 +6,7 @@
 /*   By: ptelo-de <ptelo-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/12 14:21:59 by ptelo-de          #+#    #+#             */
-/*   Updated: 2024/04/15 11:52:53 by ptelo-de         ###   ########.fr       */
+/*   Updated: 2024/04/14 16:25:37 by ptelo-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,32 +41,24 @@ static size_t	ft_count_words(char const *s, char c)
 	{
 		if (i == 0 && s[i] != c)
 			occ++;
-		else if ((s[i] == c && i != 0 && s[i - 1] != c) || (s[i] != c && s[i
-					+ 1] == 0))
+		else if ((s[i] == c && i != 0 && s[i - 1] != c) || (s[i] != c && \
+			s[i + 1] == 0))
 			occ++;
 		i++;
 	}
 	return (occ);
 }
 
-static void	ft_freewords(char **r, int i)
-{
-	while (i >= 0)
-	{
-		free(r[i]);
-		i--;
-	}
-	free(r);
-}
-
 char	**ft_split(char const *s, char c)
 {
+	int		rl;
 	char	**r;
 	int		i;
 	int		j;
 	int		k;
 
-	r = malloc(sizeof(char *) * (ft_count_words(s, c) + 1));
+	rl = ft_count_words(s, c);
+	r = malloc(sizeof(char *) * (rl + 1));
 	if (!r)
 		return (0);
 	i = -1;
@@ -78,33 +70,33 @@ char	**ft_split(char const *s, char c)
 			j = 0;
 			while (s[i + j] && s[i + j] != c)
 				j++;
-			r[k] = ft_strndup(s + i, j);
-			if (!(r[k++]))
-				ft_freewords(r, k);
+			r[k++] = ft_strndup(s + i, j);
 			i += j;
 		}
 	}
 	r[k] = NULL;
 	return (r);
 }
+
+
 /* 
 int	main(void)
 {
-	char	*s1;
+ 	char	*s1;
 	char	c;
 	char	**re;
 	int		i;
 
-	//char *s = "";
-	s1 = "lorem ";
-	c =  'z';
+	// char *s = "";
+	s1 = "hellohellaah";
+	c = 'h';
 	i = 0;
 	re = ft_split(s1, c);
 	if (re)
 	{
-		while (re[i] != NULL)
+		while (re[i])
 		{
-			printf("%s\n", re[i]);
+			printf("testing ft_split: %s\n", re[i]);
 			i++;
 		}
 		i = 0;
@@ -114,5 +106,5 @@ int	main(void)
 			i++;
 		}
 	}
-	free(re);
-}  */
+	free(re); 
+	*/
