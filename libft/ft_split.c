@@ -6,7 +6,7 @@
 /*   By: ptelo-de <ptelo-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/12 14:21:59 by ptelo-de          #+#    #+#             */
-/*   Updated: 2024/04/15 11:12:19 by ptelo-de         ###   ########.fr       */
+/*   Updated: 2024/04/15 11:52:53 by ptelo-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,24 +41,32 @@ static size_t	ft_count_words(char const *s, char c)
 	{
 		if (i == 0 && s[i] != c)
 			occ++;
-		else if ((s[i] == c && i != 0 && s[i - 1] != c) || (s[i] != c && \
-			s[i + 1] == 0))
+		else if ((s[i] == c && i != 0 && s[i - 1] != c) || (s[i] != c && s[i
+					+ 1] == 0))
 			occ++;
 		i++;
 	}
 	return (occ);
 }
 
+static void	ft_freewords(char **r, int i)
+{
+	while (i >= 0)
+	{
+		free(r[i]);
+		i--;
+	}
+	free(r);
+}
+
 char	**ft_split(char const *s, char c)
 {
-	int		rl;
 	char	**r;
 	int		i;
 	int		j;
 	int		k;
 
-	rl = ft_count_words(s, c);
-	r = malloc(sizeof(char *) * (rl + 1));
+	r = malloc(sizeof(char *) * (ft_count_words(s, c) + 1));
 	if (!r)
 		return (0);
 	i = -1;
@@ -70,23 +78,25 @@ char	**ft_split(char const *s, char c)
 			j = 0;
 			while (s[i + j] && s[i + j] != c)
 				j++;
-			r[k++] = ft_strndup(s + i, j);
+			r[k] = ft_strndup(s + i, j);
+			if (!(r[k++]))
+				ft_freewords(r, k);
 			i += j;
 		}
 	}
 	r[k] = NULL;
 	return (r);
 }
- 
+/* 
 int	main(void)
 {
- 	char	*s1;
+	char	*s1;
 	char	c;
 	char	**re;
 	int		i;
 
-	// char *s = "";
-	s1 = "lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultricies diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi.";
+	//char *s = "";
+	s1 = "lorem ";
 	c =  'z';
 	i = 0;
 	re = ft_split(s1, c);
@@ -104,5 +114,5 @@ int	main(void)
 			i++;
 		}
 	}
-	free(re); 
-} 
+	free(re);
+}  */
