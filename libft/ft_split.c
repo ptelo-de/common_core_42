@@ -6,7 +6,7 @@
 /*   By: ptelo-de <ptelo-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/12 14:21:59 by ptelo-de          #+#    #+#             */
-/*   Updated: 2024/04/14 16:25:37 by ptelo-de         ###   ########.fr       */
+/*   Updated: 2024/04/15 11:12:19 by ptelo-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,9 +77,7 @@ char	**ft_split(char const *s, char c)
 	r[k] = NULL;
 	return (r);
 }
-
-
-/* 
+ 
 int	main(void)
 {
  	char	*s1;
@@ -88,15 +86,15 @@ int	main(void)
 	int		i;
 
 	// char *s = "";
-	s1 = "hellohellaah";
-	c = 'h';
+	s1 = "lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum ultricies diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi.";
+	c =  'z';
 	i = 0;
 	re = ft_split(s1, c);
 	if (re)
 	{
-		while (re[i])
+		while (re[i] != NULL)
 		{
-			printf("testing ft_split: %s\n", re[i]);
+			printf("%s\n", re[i]);
 			i++;
 		}
 		i = 0;
@@ -107,4 +105,4 @@ int	main(void)
 		}
 	}
 	free(re); 
-	*/
+} 
