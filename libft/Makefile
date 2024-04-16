@@ -8,12 +8,9 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
 %.o: %.c
-	@$(CC) $(CFLAGS) -c $< -o $@ 
+	$(CC) $(CFLAGS) -c $< -o $@ 
 
-all: message $(NAME)
-
-message:
-	@echo "compiling $(NAME) ..."
+all: $(NAME)
 	
 $(NAME): $(OBJ)
 	@ar rsc $(NAME) $(OBJ)

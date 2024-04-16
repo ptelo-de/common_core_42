@@ -6,7 +6,7 @@
 /*   By: ptelo-de <ptelo-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 21:07:45 by ptelo-de          #+#    #+#             */
-/*   Updated: 2024/04/11 17:58:03 by ptelo-de         ###   ########.fr       */
+/*   Updated: 2024/04/16 20:23:58 by ptelo-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	char	*join;
 	size_t	i;
 	size_t	j;
-
+	if (!s1 || !s2)
+		return (NULL);
 	join = malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
 	if (join == 0)
 		return (0);
