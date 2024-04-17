@@ -6,55 +6,74 @@
 /*   By: ptelo-de <ptelo-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/12 14:22:40 by ptelo-de          #+#    #+#             */
-/*   Updated: 2024/04/14 11:44:18 by ptelo-de         ###   ########.fr       */
+/*   Updated: 2024/04/17 19:11:12 by ptelo-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static size_t	ft_countchr(int n)
+static size_t	ft_countchr(long n)
 {
 	size_t	rl;
-	int		j;
 
-	rl = 0;
-	j = n;
-	if (!j)
+	rl = 1;
+	if (!n)
 		return (1);
-	while (j)
+	if (n > 0)
+	{
+		while (n > 9)
+		{
+			rl++;
+			n = n / 10;
+		}
+	}
+	else 
 	{
 		rl++;
-		j = j / 10;
+		n = -n;
+		while (n > 9)
+		{
+			rl++;
+			n = n / 10;
+		}
 	}
-	if (n < 0)
-		rl++;
 	return (rl);
 }
+
 
 char	*ft_itoa(int n)
 {
 	char	*r;
 	size_t	rl;
 	size_t	i;
+	long int	 n2;
 
 	rl = ft_countchr(n);
 	i = 0;
-	if (n == -2147483648)
-		return ("-2147483648");
+	n2 = n;
 	r = (char *)ft_calloc(rl + 1, 1);
-	if (n < 0)
+	if (!r)
+		return (NULL);
+	if (n2 < 0)
 	{
 		r[i] = '-';
 		i++;
-		n = -n;
+		n2 = -n2;
 	}
-	rl--;
-	while (rl > i)
+	r[rl] = '\0';
+	while (--rl > i)
 	{
-		r[rl] = (48 + n % 10);
-		rl--;
-		n /= 10;
+		r[rl] = (48 + n2 % 10);
+		n2 /= 10;
 	}
-	r[i] = 48 + n % 10;
+	r[i] = 48 + n2 % 10;
 	return (r);
 }
+/* int main()
+{
+			char	*i1 = ft_itoa(-2147483648);
+			char	*i2 = ft_itoa(1031797530);
+			char	*i3 = ft_itoa(1234);
+
+			printf("%s\n%s\n%s\n",i1,i2,i3);
+} */

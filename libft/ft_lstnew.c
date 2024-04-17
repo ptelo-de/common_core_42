@@ -1,29 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ptelo-de <ptelo-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/09 21:05:12 by ptelo-de          #+#    #+#             */
-/*   Updated: 2024/04/17 19:17:14 by ptelo-de         ###   ########.fr       */
+/*   Created: 2024/04/17 20:50:09 by ptelo-de          #+#    #+#             */
+/*   Updated: 2024/04/17 21:04:01 by ptelo-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putendl_fd(char *s, int fd)
+t_list *ft_lstnew(void *content)
 {
-	size_t	i;
-	char	c;
-	if (!s)
-		return ;
-	i = 0;
-	while (s[i])
-	{
-		write(fd, &s[i], 1);
-		i++;
-	}
-	c = '\n';
-	write(fd, &c, 1);
+    t_list  *node;
+
+    node = malloc(sizeof(t_list));
+    if (!node)
+        return(NULL);
+    node->content = content;
+    node->next = NULL;
+    return(node);
 }
+/* int main()
+{
+    char *content = "olaola";
+    t_list *node = ft_lstnew(content);
+    printf("%s\n", node->content);
+} */

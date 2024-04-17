@@ -6,7 +6,7 @@
 /*   By: ptelo-de <ptelo-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/12 14:21:59 by ptelo-de          #+#    #+#             */
-/*   Updated: 2024/04/14 16:25:37 by ptelo-de         ###   ########.fr       */
+/*   Updated: 2024/04/17 19:21:31 by ptelo-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,16 +51,16 @@ static size_t	ft_count_words(char const *s, char c)
 
 char	**ft_split(char const *s, char c)
 {
-	int		rl;
 	char	**r;
 	int		i;
 	int		j;
 	int		k;
 
-	rl = ft_count_words(s, c);
-	r = malloc(sizeof(char *) * (rl + 1));
+	if (!s)
+		return(NULL);
+	r = malloc(sizeof(char *) * (ft_count_words(s, c) + 1));
 	if (!r)
-		return (0);
+		return (NULL);
 	i = -1;
 	k = 0;
 	while (s[++i])
