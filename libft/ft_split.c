@@ -6,29 +6,11 @@
 /*   By: ptelo-de <ptelo-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/12 14:21:59 by ptelo-de          #+#    #+#             */
-/*   Updated: 2024/04/19 23:51:32 by ptelo-de         ###   ########.fr       */
+/*   Updated: 2024/04/20 20:17:03 by ptelo-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-static char	*ft_strndup(const char *s, size_t n)
-{
-	size_t	i;
-	char	*d;
-
-	i = 0;
-	d = (char *)malloc(n + 1);
-	if (!d)
-		return (NULL);
-	while (s[i] && i < n)
-	{
-		d[i] = s[i];
-		i++;
-	}
-	d[i] = '\0';
-	return (d);
-}
 
 static size_t	ft_count_words(char const *s, char c)
 {
@@ -70,7 +52,7 @@ char	**ft_split(char const *s, char c)
 			j = 0;
 			while (s[i + j] && s[i + j] != c)
 				j++;
-			r[k++] = ft_strndup(s + i, j);
+			r[k++] = ft_substr(s, i, j);
 			i += j;
 		}
 	}

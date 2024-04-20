@@ -6,93 +6,17 @@
 /*   By: ptelo-de <ptelo-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 19:19:23 by ptelo-de          #+#    #+#             */
-/*   Updated: 2024/04/18 19:42:21 by ptelo-de         ###   ########.fr       */
+/*   Updated: 2024/04/20 21:09:30 by ptelo-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 t_list *ft_lstlast(t_list *lst)
-{
-    t_list  *temp;
-    
+{   
     if(!lst)
         return(NULL);
-    temp = lst;
-    while(temp->next)
-        temp = temp->next;
-    return(temp);
+    while(lst->next)
+        lst = lst->next;
+    return(lst);
 }
-/* #include <string.h>
-
-void	ft_print_result(t_list *elem)
-{
-	int		len;
-
-	len = 0;
-	while (((char *)elem->content)[len])
-		len++;
-	write(1, elem->content, len);
-	write(1, "\n", 1);
-}
-
-t_list	*ft_lstnewone(void *content)
-{
-	t_list	*elem;
-
-	elem = (t_list *)malloc(sizeof(t_list));
-	if (!elem)
-		return (NULL);
-	if (!content)
-		elem->content = NULL;
-	else
-		elem->content = content;
-	elem->next = NULL;
-	return (elem);
-}
-
-int main(int argc, const char *argv[])
-{
-	int			i;
-	char		*content;
-	t_list		*val;
-	t_list		*elem;
-	t_list		*elem2;
-	t_list		*elem3;
-	t_list		*elem4;
-	char		*str = strdup("lorem");
-	char		*str2 = strdup("ipsum");
-	char		*str3 = strdup("dolor");
-	char		*str4 = strdup("sit");
-
-	elem = ft_lstnewone(str);
-	elem2 = ft_lstnewone(str2);
-	elem3 = ft_lstnewone(str3);
-	elem4 = ft_lstnewone(str4);
-	alarm(5);
-
-		elem->next = elem2;
-		elem2->next = elem3;
-		elem3->next = elem4;
-		val = ft_lstlast(elem);
-		i = 0;
-		content = val->content;
-		while (content[i])
-			write(1, &(content[i++]), 1);
-		write(1, "\n", 1);
-		elem->next = NULL;
-		val = ft_lstlast(elem);
-		content = val->content;
-		i = 0;
-		while (content[i])
-			write(1, &(content[i++]), 1);
-		write(1, "\n", 1);
-		elem = NULL;
-		val = ft_lstlast(elem);
-		if (val == NULL)
-			write(1, "NULL", 4);
-		write(1, "\n", 1);
-
-	return (0);
-}
- */

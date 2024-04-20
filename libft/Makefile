@@ -22,7 +22,7 @@ $(NAME): $(OBJ)
 	@echo "compilled"
 
 clean:
-	@rm -f $(OBJ)
+	@rm -f $(OBJ) $(OBJ_B)
 
 fclean: clean
 	@rm -f $(NAME)

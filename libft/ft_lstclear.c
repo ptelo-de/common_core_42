@@ -6,7 +6,7 @@
 /*   By: ptelo-de <ptelo-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 17:49:36 by ptelo-de          #+#    #+#             */
-/*   Updated: 2024/04/19 23:46:45 by ptelo-de         ###   ########.fr       */
+/*   Updated: 2024/04/20 21:40:03 by ptelo-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ void ft_lstclear(t_list **lst, void (*del)(void*))
 {
     t_list  *aux;
 
-    aux = *lst;
     while (*lst)
     {
         aux = (*lst)->next;
@@ -25,12 +24,12 @@ void ft_lstclear(t_list **lst, void (*del)(void*))
     } 
     lst = NULL;
 }
-/* 
+
 void    ft_del(void    *content)
 {
     free(content);
 }
-int main()
+/* int main()
 {
     t_list  *node1 = ft_lstnew(ft_strdup("content1"));
     t_list  *node2 = ft_lstnew(ft_strdup("content2"));
@@ -38,9 +37,9 @@ int main()
     node1->next = node2;
     printf("%s\n", (char *)(node1->next->content));
     ft_lstclear(&node1, &ft_del);
-    //printf("%s\n", (char *)(node1->next->content));
+    printf("%s\n", (char *)(&node1));
     
     
 
     
-} */
+}  */

@@ -6,7 +6,7 @@
 /*   By: ptelo-de <ptelo-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 20:58:24 by ptelo-de          #+#    #+#             */
-/*   Updated: 2024/04/19 21:18:12 by ptelo-de         ###   ########.fr       */
+/*   Updated: 2024/04/20 21:25:47 by ptelo-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,6 @@
 
 void ft_lstiter(t_list *lst, void (*f)(void *))
 {
-    
-    if (!lst)
-        return ;
     while(lst)
     {
         f(lst->content);
