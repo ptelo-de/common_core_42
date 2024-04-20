@@ -6,7 +6,7 @@
 /*   By: ptelo-de <ptelo-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 21:10:51 by ptelo-de          #+#    #+#             */
-/*   Updated: 2024/04/15 21:51:47 by ptelo-de         ###   ########.fr       */
+/*   Updated: 2024/04/20 00:02:02 by ptelo-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 	char	*little;
 	size_t	c;
 	size_t	i;
-	
+
 	if (!len && !haystack)
 		return (NULL);
 	if (!needle[0])
-		return((char *)haystack);
+		return ((char *)haystack);
 	big = (char *)haystack;
 	little = (char *)needle;
 	i = 0;
@@ -30,7 +30,7 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 	{
 		c = 0;
 		while (i + c < len && big[i + c] == little[c])
-		{	
+		{
 			if (little[c + 1] == '\0')
 				return (big + i);
 			c++;
@@ -41,7 +41,6 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 }
 /* int main(void)
 {
-	char *str;
-	str = ft_strnstr("", "", 5);
-			printf("%s\n",str);
+	printf("%s\n",ft_strnstr("lorem ipsum dolor sit amet", "", 10));
+	printf("%s\n",ft_strnstr("lorem ipsum dolor sit amet", "dol", 30));
 } */

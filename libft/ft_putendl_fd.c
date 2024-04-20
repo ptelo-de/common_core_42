@@ -6,7 +6,7 @@
 /*   By: ptelo-de <ptelo-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 21:05:12 by ptelo-de          #+#    #+#             */
-/*   Updated: 2024/04/17 19:17:14 by ptelo-de         ###   ########.fr       */
+/*   Updated: 2024/04/19 23:52:07 by ptelo-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ void	ft_putendl_fd(char *s, int fd)
 {
 	size_t	i;
 	char	c;
+
 	if (!s)
 		return ;
 	i = 0;

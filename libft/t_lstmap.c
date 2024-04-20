@@ -1,28 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   t_lstmap.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ptelo-de <ptelo-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/09 21:05:29 by ptelo-de          #+#    #+#             */
-/*   Updated: 2024/04/19 23:47:51 by ptelo-de         ###   ########.fr       */
+/*   Created: 2024/04/20 00:07:15 by ptelo-de          #+#    #+#             */
+/*   Updated: 2024/04/20 01:06:29 by ptelo-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memset(void *s, int c, size_t n)
+t_list *ft_lstmap(t_list *lst, void *(*f)(void *),void (*del)(void *))
 {
-	unsigned char	*ptr;
-	size_t			i;
+    t_list  *result;
+    t_list  *swap;
 
-	ptr = (unsigned char *)s;
-	i = 0;
-	while (i < n)
-	{
-		ptr[i] = c;
-		i++;
-	}
-	return (s);
+    swap = lst;
+    result = NULL;
+    while(lst)
+    {
+        swap = ft_lstnew(f(swap->content));
+        ft_lstadd_back(&result, swap);
+        lst = lst->next;
+    }
+    return(result);
+}
+int main()
+{
+    
 }

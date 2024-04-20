@@ -6,7 +6,7 @@
 /*   By: ptelo-de <ptelo-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/12 14:21:59 by ptelo-de          #+#    #+#             */
-/*   Updated: 2024/04/17 22:06:00 by ptelo-de         ###   ########.fr       */
+/*   Updated: 2024/04/19 23:51:32 by ptelo-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,8 @@ static size_t	ft_count_words(char const *s, char c)
 	{
 		if (i == 0 && s[i] != c)
 			occ++;
-		else if ((s[i] == c && i != 0 && s[i - 1] != c) || (s[i] != c && \
-			s[i + 1] == 0))
+		else if ((s[i] == c && i != 0 && s[i - 1] != c) || (s[i] != c && s[i
+				+ 1] == 0))
 			occ++;
 		i++;
 	}
@@ -57,7 +57,7 @@ char	**ft_split(char const *s, char c)
 	int		k;
 
 	if (!s)
-		return(NULL);
+		return (NULL);
 	r = malloc(sizeof(char *) * (ft_count_words(s, c) + 1));
 	if (!r)
 		return (NULL);
@@ -78,10 +78,10 @@ char	**ft_split(char const *s, char c)
 	return (r);
 }
 
-/* 
+/*
 int	main(void)
 {
- 	char	*s1;
+	char	*s1;
 	char	c;
 	char	**re;
 	int		i;
@@ -105,5 +105,5 @@ int	main(void)
 			i++;
 		}
 	}
-	free(re); 
+	free(re);
 	*/

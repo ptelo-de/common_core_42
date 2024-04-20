@@ -6,7 +6,7 @@
 /*   By: ptelo-de <ptelo-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 21:12:36 by ptelo-de          #+#    #+#             */
-/*   Updated: 2024/04/16 21:43:13 by ptelo-de         ###   ########.fr       */
+/*   Updated: 2024/04/19 23:51:03 by ptelo-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ char	*ft_strtrim(char const *s1, char const *set)
 	r = malloc(end - start + 1);
 	if (r == 0)
 		return (0);
-
 	ft_strlcpy(r, s1 + start, end - start + 1);
 	return (r);
 }

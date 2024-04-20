@@ -6,26 +6,27 @@
 /*   By: ptelo-de <ptelo-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 18:18:32 by ptelo-de          #+#    #+#             */
-/*   Updated: 2024/04/18 19:17:43 by ptelo-de         ###   ########.fr       */
+/*   Updated: 2024/04/19 19:34:23 by ptelo-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_lstsize(t_list *lst)
+int	ft_lstsize(t_list *lst)
 {
-    t_list  *temp;
-    int counter;
-    if(!lst)
-        return(0);
-    counter = 1;
-    temp = lst->next;
-    while(temp)
-    {
-        counter++;
-        temp = temp->next;
-    }
-    return(counter);
+	t_list	*temp;
+	int		counter;
+
+	if (!lst)
+		return (0);
+	counter = 1;
+	temp = lst->next;
+	while (temp)
+	{
+		counter++;
+		temp = temp->next;
+	}
+	return (counter);
 }
 
 /*#include <string.h>
@@ -44,7 +45,7 @@ t_list	*ft_lstnewone(void *content)
 	elem->next = NULL;
 	return (elem);
 }
-int main(int argc, const char *argv[])
+int	main(int argc, const char *argv[])
 {
 	t_list		*elem;
 	t_list		*elem2;

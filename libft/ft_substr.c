@@ -6,19 +6,19 @@
 /*   By: ptelo-de <ptelo-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 21:12:51 by ptelo-de          #+#    #+#             */
-/*   Updated: 2024/04/16 20:22:45 by ptelo-de         ###   ########.fr       */
+/*   Updated: 2024/04/19 23:50:03 by ptelo-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include<stdio.h>
+#include <stdio.h>
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*sub;
 	size_t	k;
 	size_t	c;
-	
+
 	c = 0;
 	if (!s)
 		return (NULL);
@@ -44,7 +44,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 			const size_t	size = 10;
 			char	str[10] = ""i just want this part #############"";
-			
+
 			//strcpy(str, "YOLO !!!!");
 			printf("asdsada\n");
 			printf("%s\n",ft_substr(str, 6, size) + 3);

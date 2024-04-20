@@ -6,7 +6,7 @@
 /*   By: ptelo-de <ptelo-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/12 14:22:40 by ptelo-de          #+#    #+#             */
-/*   Updated: 2024/04/17 19:11:12 by ptelo-de         ###   ########.fr       */
+/*   Updated: 2024/04/19 23:51:51 by ptelo-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static size_t	ft_countchr(long n)
 			n = n / 10;
 		}
 	}
-	else 
+	else
 	{
 		rl++;
 		n = -n;
@@ -40,13 +40,12 @@ static size_t	ft_countchr(long n)
 	return (rl);
 }
 
-
 char	*ft_itoa(int n)
 {
-	char	*r;
-	size_t	rl;
-	size_t	i;
-	long int	 n2;
+	char		*r;
+	size_t		rl;
+	size_t		i;
+	long int	n2;
 
 	rl = ft_countchr(n);
 	i = 0;
