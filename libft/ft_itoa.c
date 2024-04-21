@@ -6,7 +6,7 @@
 /*   By: ptelo-de <ptelo-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/12 14:22:40 by ptelo-de          #+#    #+#             */
-/*   Updated: 2024/04/19 23:51:51 by ptelo-de         ###   ########.fr       */
+/*   Updated: 2024/04/21 18:24:49 by ptelo-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ char	*ft_itoa(int n)
 	rl = ft_countchr(n);
 	i = 0;
 	n2 = n;
-	r = (char *)ft_calloc(rl + 1, 1);
+	r = (char *)ft_calloc(rl + 1, sizeof(char));
 	if (!r)
 		return (NULL);
 	if (n2 < 0)
@@ -75,4 +75,11 @@ char	*ft_itoa(int n)
 			char	*i3 = ft_itoa(1234);
 
 			printf("%s\n%s\n%s\n",i1,i2,i3);
+			ft_bzero(i1, ft_strlen(i1)*sizeof(char));
+			free(i1);
+			ft_bzero(i2, ft_strlen(i2)*sizeof(char));
+			free(i2);
+			ft_bzero(i3, ft_strlen(i3)*sizeof(char));
+			free(i3);
+			//tested with valgrind
 } */

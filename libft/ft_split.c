@@ -6,7 +6,7 @@
 /*   By: ptelo-de <ptelo-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/12 14:21:59 by ptelo-de          #+#    #+#             */
-/*   Updated: 2024/04/20 20:17:03 by ptelo-de         ###   ########.fr       */
+/*   Updated: 2024/04/21 19:35:27 by ptelo-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,21 +28,27 @@ static size_t	ft_count_words(char const *s, char c)
 			occ++;
 		i++;
 	}
+	printf("%zu\n", occ);
 	return (occ);
 }
-
-char	**ft_split(char const *s, char c)
+static char	**ft_free(char **array)
 {
-	char	**r;
+	int	i;
+
+	i = 0;
+	while (array[i])
+	{
+		ft_bzero(array[i], ft_strlen(array[i])*sizeof(char));
+		free(array[i++]);
+	}
+	free(array);
+	return (NULL);
+}
+static char	**ft_writewords(char **r, char const *s, char c)
+{
 	int		i;
 	int		j;
 	int		k;
-
-	if (!s)
-		return (NULL);
-	r = malloc(sizeof(char *) * (ft_count_words(s, c) + 1));
-	if (!r)
-		return (NULL);
 	i = -1;
 	k = 0;
 	while (s[++i])
@@ -52,32 +58,49 @@ char	**ft_split(char const *s, char c)
 			j = 0;
 			while (s[i + j] && s[i + j] != c)
 				j++;
-			r[k++] = ft_substr(s, i, j);
+			r[k] = ft_substr(s, i, j);
+			if ( !r[k])
+				return (ft_free(r));
 			i += j;
+			k++;
 		}
 	}
 	r[k] = NULL;
 	return (r);
+	
+}
+char	**ft_split(char const *s, char c)
+{
+	char	**r;
+
+	if (!s)
+		return (NULL);
+	//r = ft_calloc((ft_count_words(s, c) + 1), sizeof(char));
+	r = malloc(sizeof(char *) * (ft_count_words(s, c) + 1));
+	if (!r)
+		return (NULL);
+	
+	return (ft_writewords(r, s, c));
 }
 
-/*
-int	main(void)
+/* int	main(void)
 {
 	char	*s1;
 	char	c;
 	char	**re;
 	int		i;
 
-	// char *s = "";
-	s1 = "hellohellaah";
+	s1 = ft_strdup("hellohellaah");
 	c = 'h';
 	i = 0;
+	//printf("aaa\n");
 	re = ft_split(s1, c);
+	free(s1);
 	if (re)
 	{
 		while (re[i])
 		{
-			printf("testing ft_split: %s\n", re[i]);
+			printf("%s\n", re[i]);
 			i++;
 		}
 		i = 0;
@@ -88,4 +111,17 @@ int	main(void)
 		}
 	}
 	free(re);
-	*/
+} */
+
+
+	//char **res;
+	//int	i = 0;
+	//res = ft_split(s, 32);
+	// while (i < 10)
+	// {
+	// 	printf("str[%i]: %s\n", i,res[i]);
+	// 	i++;
+	// }
+	return (0);
+}
+	
