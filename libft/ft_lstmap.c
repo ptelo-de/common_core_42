@@ -6,7 +6,7 @@
 /*   By: ptelo-de <ptelo-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/20 00:07:15 by ptelo-de          #+#    #+#             */
-/*   Updated: 2024/04/21 17:55:16 by ptelo-de         ###   ########.fr       */
+/*   Updated: 2024/04/22 19:13:16 by ptelo-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	}
 	return (result);
 }
-static void del(void *c)
+/* static void del(void *c)
 {
     ft_bzero(c, sizeof(c));
 	free(c);
@@ -57,7 +57,7 @@ static void *ft_tolo(void *s)
     printf("sai\n");
     return (s);
 }
-/* int main(void)
+int main(void)
 {
     t_list *node1 = ft_lstnew(ft_strdup("NOdE1"));
     t_list *node2 = ft_lstnew(ft_strdup("NOdE2"));
