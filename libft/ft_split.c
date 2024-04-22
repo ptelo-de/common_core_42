@@ -6,7 +6,7 @@
 /*   By: ptelo-de <ptelo-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/12 14:21:59 by ptelo-de          #+#    #+#             */
-/*   Updated: 2024/04/21 19:35:27 by ptelo-de         ###   ########.fr       */
+/*   Updated: 2024/04/22 16:45:55 by ptelo-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,17 @@ static size_t	ft_count_words(char const *s, char c)
 	occ = 0;
 	while (s[i])
 	{
-		if (i == 0 && s[i] != c)
-			occ++;
-		else if ((s[i] == c && i != 0 && s[i - 1] != c) || (s[i] != c && s[i
-				+ 1] == 0))
-			occ++;
+        if (s[i] != c && s[i])
+        {
+            occ++;
+            //printf("%c\n", s[i]);
+            while (s[i] && s[i] != c)
+                i++;
+            if(!s[i])
+                break;
+        }
 		i++;
 	}
-	printf("%zu\n", occ);
 	return (occ);
 }
 static char	**ft_free(char **array)
@@ -75,53 +78,27 @@ char	**ft_split(char const *s, char c)
 
 	if (!s)
 		return (NULL);
-	//r = ft_calloc((ft_count_words(s, c) + 1), sizeof(char));
-	r = malloc(sizeof(char *) * (ft_count_words(s, c) + 1));
+	r = ft_calloc((ft_count_words(s, c) + 1), sizeof(char *));
 	if (!r)
 		return (NULL);
-	
 	return (ft_writewords(r, s, c));
 }
-
-/* int	main(void)
+/* int		main()
 {
-	char	*s1;
-	char	c;
-	char	**re;
-	int		i;
+	char s[] = "       Split                      geralmente da problema com count words!\0";
 
-	s1 = ft_strdup("hellohellaah");
-	c = 'h';
-	i = 0;
-	//printf("aaa\n");
-	re = ft_split(s1, c);
-	free(s1);
-	if (re)
+	printf("%zu\n", ft_count_words(s, ' '));
+	char **r = ft_split(s, 32);
+	//(void)r;
+	int i = 0;
+	while (i <= ft_count_words(s, 32) + 1)
 	{
-		while (re[i])
-		{
-			printf("%s\n", re[i]);
-			i++;
-		}
-		i = 0;
-		while (re[i])
-		{
-			free(re[i]);
-			i++;
-		}
+		printf("%s\n", r[i]);
+		i++;
+	printf("here\n");
 	}
-	free(re);
+    return (0);
+
 } */
 
-
-	//char **res;
-	//int	i = 0;
-	//res = ft_split(s, 32);
-	// while (i < 10)
-	// {
-	// 	printf("str[%i]: %s\n", i,res[i]);
-	// 	i++;
-	// }
-	return (0);
-}
 	

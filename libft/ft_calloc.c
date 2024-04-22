@@ -6,7 +6,7 @@
 /*   By: ptelo-de <ptelo-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 21:06:59 by ptelo-de          #+#    #+#             */
-/*   Updated: 2024/04/21 18:16:49 by ptelo-de         ###   ########.fr       */
+/*   Updated: 2024/04/22 16:46:42 by ptelo-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 void	*ft_calloc(size_t nmemb, size_t size)
 {
 	void	*array;
-	size_t max;
+	size_t	max;
 
 	max = nmemb * size;
-	if (nmemb && size && max/size != nmemb)
+	if (nmemb && size && max / size != nmemb)
 		return (NULL);
 	array = malloc(max);
 	if (!array)

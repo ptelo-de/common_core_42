@@ -6,7 +6,7 @@
 /*   By: ptelo-de <ptelo-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 21:12:51 by ptelo-de          #+#    #+#             */
-/*   Updated: 2024/04/21 18:02:02 by ptelo-de         ###   ########.fr       */
+/*   Updated: 2024/04/22 16:47:46 by ptelo-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		len = 0;
 	else if (k <= (len + start))
 		len = k - start;
-	sub = malloc((len + 1)*sizeof(char));
+	sub = malloc((len + 1) * sizeof(char));
 	if (sub == 0)
 		return (0);
 	while (s[start] && c < len)
