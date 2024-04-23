@@ -6,7 +6,7 @@
 /*   By: ptelo-de <ptelo-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/12 14:21:59 by ptelo-de          #+#    #+#             */
-/*   Updated: 2024/04/22 21:54:45 by ptelo-de         ###   ########.fr       */
+/*   Updated: 2024/04/23 19:57:07 by ptelo-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ static void ft_free(char **r, int k)
 	k--;
 	while (k >= 0)
 	{
-		printf("liberei: %i\n", i);
 		free(r[k]);
 		k--;
 		i++;
@@ -65,7 +64,7 @@ static char	**ft_writewords(char **r, char const *s, char c)
 			r[k] = ft_substr(s, i, j);
 			if (!r[k])
 			{
-				free(r[k]);
+				ft_free(r,k);
 				return (NULL);
 			}
 			i += j;
@@ -87,7 +86,7 @@ char	**ft_split(char const *s, char c)
 		return (NULL);
 	return (ft_writewords(r, s, c));
 }
-int		main()
+/* int		main()
 {
 	char s[] = "St ge da pa cm ct ws!";
 
@@ -104,6 +103,6 @@ int		main()
 
     return (0);
 
-}
+} */
 
 	
