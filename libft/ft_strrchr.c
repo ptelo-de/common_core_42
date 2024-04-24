@@ -6,7 +6,7 @@
 /*   By: ptelo-de <ptelo-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 21:11:06 by ptelo-de          #+#    #+#             */
-/*   Updated: 2024/04/22 19:25:00 by ptelo-de         ###   ########.fr       */
+/*   Updated: 2024/04/24 22:18:58 by ptelo-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	*ft_strrchr(const char *s, int c)
 
 	l = ft_strlen(s);
 	if ((unsigned char)c == '\0')
-		return (char *)(s + (int)(ft_strlen(s)));
+		return ((char *)(s + (int)(ft_strlen(s))));
 	while (l >= 0)
 	{
 		if (s[l] == (unsigned char)c)

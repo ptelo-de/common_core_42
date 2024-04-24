@@ -6,7 +6,7 @@
 /*   By: ptelo-de <ptelo-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 21:12:51 by ptelo-de          #+#    #+#             */
-/*   Updated: 2024/04/22 21:38:53 by ptelo-de         ###   ########.fr       */
+/*   Updated: 2024/04/24 22:19:15 by ptelo-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,10 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		return (NULL);
 	k = ft_strlen(s);
 	if (start >= k)
-		len = 0;
+		return (ft_strdup(""));
 	else if (k <= (len + start))
 		len = k - start;
-	sub = malloc((len + 1) * sizeof(char));
+	sub = ft_calloc((len + 1), sizeof(char));
 	if (sub == NULL)
 		return (NULL);
 	while (s[start] && c < len)
@@ -39,12 +39,10 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	sub[c] = '\0';
 	return (sub);
 }
-/* 
-int main()
-{
-			const size_t	size = 2;
-			char	str[] = "St ge da pa cm ct ws!\0";
 
-			//strcpy(str, "YOLO !!!!");
-			printf("%s\n",ft_substr(str, 0, size));
+/* int main()
+{
+	s = ft_substr("tripouille", 100, 1);
+	mcheck(s, 1); free(s);
+
 } */

@@ -6,7 +6,7 @@
 #    By: ptelo-de <ptelo-de@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/21 17:57:19 by ptelo-de          #+#    #+#              #
-#    Updated: 2024/04/21 17:57:20 by ptelo-de         ###   ########.fr        #
+#    Updated: 2024/04/24 21:42:35 by ptelo-de         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,6 +32,10 @@ bonus: $(NAME) $(OBJ_B)
 $(NAME): $(OBJ)
 	@ar rsc $(NAME) $(OBJ)
 	@echo "compilled"
+
+run: all
+	cc test.c libft.a
+	valgrind ./a.out
 
 clean:
 	@rm -f $(OBJ) $(OBJ_B)

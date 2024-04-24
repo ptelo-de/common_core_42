@@ -6,18 +6,18 @@
 /*   By: ptelo-de <ptelo-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 17:15:37 by ptelo-de          #+#    #+#             */
-/*   Updated: 2024/04/23 22:34:23 by ptelo-de         ###   ########.fr       */
+/*   Updated: 2024/04/24 22:21:47 by ptelo-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void ft_lstadd_front(t_list **lst, t_list *new)
+void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-    if (!lst || !new)  //||  !(*lst))
-        return ;
-    new->next = *lst;
-    *lst = new;
+	if (!lst || !new)
+		return ;
+	new->next = *lst;
+	*lst = new;
 }
 /* int main()
 {

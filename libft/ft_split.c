@@ -6,7 +6,7 @@
 /*   By: ptelo-de <ptelo-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/12 14:21:59 by ptelo-de          #+#    #+#             */
-/*   Updated: 2024/04/23 19:57:07 by ptelo-de         ###   ########.fr       */
+/*   Updated: 2024/04/24 22:17:46 by ptelo-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,40 +21,37 @@ static size_t	ft_count_words(char const *s, char c)
 	occ = 0;
 	while (s[i])
 	{
-        if (s[i] != c && s[i])
-        {
-            occ++;
-            //printf("%c\n", s[i]);
-            while (s[i] && s[i] != c)
-                i++;
-            if(!s[i])
-                break;
-        }
+		if (s[i] != c && s[i])
+		{
+			occ++;
+			while (s[i] && s[i] != c)
+				i++;
+			if (!s[i])
+				break ;
+		}
 		i++;
 	}
 	return (occ);
 }
-static void ft_free(char **r, int k)
+
+static void	ft_free(char **r, int j)
 {
-	int		i=1;
-	k--;
-	while (k >= 0)
+	while (j > 0)
 	{
-		free(r[k]);
-		k--;
-		i++;
+		free(r[--j]);
 	}
 	free(r);
 }
 
 static char	**ft_writewords(char **r, char const *s, char c)
 {
-	int		i;
-	int		j;
-	int		k;
-	i = -1;
+	int	i;
+	int	k;
+	int	j;
+
+	i = 0;
 	k = 0;
-	while (s[++i] && k < (int)ft_count_words(s,c))
+	while (k < (int)ft_count_words(s, c))
 	{
 		if (s[i] != c && (i == 0 || s[i - 1] == c))
 		{
@@ -62,31 +59,39 @@ static char	**ft_writewords(char **r, char const *s, char c)
 			while (s[i + j] && s[i + j] != c)
 				j++;
 			r[k] = ft_substr(s, i, j);
-			if (!r[k])
+			if (!r[k++])
 			{
-				ft_free(r,k);
+				ft_free(r, k);
 				return (NULL);
 			}
 			i += j;
-			k++;
 		}
+		i++;
 	}
 	r[k] = NULL;
 	return (r);
-	
 }
+
 char	**ft_split(char const *s, char c)
 {
 	char	**r;
 
-	if (!s)
+	if (!(s))
 		return (NULL);
-	r = malloc((ft_count_words(s, c) + 1) * sizeof(char *));
+	r = ft_calloc((ft_count_words(s, c) + 1), sizeof(char *));
 	if (!r)
 		return (NULL);
-	return (ft_writewords(r, s, c));
+	r = ft_writewords(r, s, c);
+	if (!r)
+		return (NULL);
+	return (r);
 }
-/* int		main()
+/* int main()
+{
+	char **tab = ft_split("", ' ');
+	printf("%s\n", tab[100]);
+	ft_free(tab, 1);
+int		main(void)
 {
 	char s[] = "St ge da pa cm ct ws!";
 
@@ -101,8 +106,6 @@ char	**ft_split(char const *s, char c)
 	}
 	ft_free(r, 7);
 
-    return (0);
+	return (0);
 
 } */
-
-	
