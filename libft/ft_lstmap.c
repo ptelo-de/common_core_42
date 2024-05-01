@@ -6,7 +6,7 @@
 /*   By: ptelo-de <ptelo-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/20 00:07:15 by ptelo-de          #+#    #+#             */
-/*   Updated: 2024/04/23 20:36:26 by ptelo-de         ###   ########.fr       */
+/*   Updated: 2024/04/25 10:43:44 by ptelo-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	result = NULL;
 	while (lst)
 	{
-		c = f(swap->content);
+		c = f(lst->content);
 		swap = ft_lstnew(c);
 		if (!swap)
 		{

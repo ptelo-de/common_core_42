@@ -6,7 +6,7 @@
 /*   By: ptelo-de <ptelo-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 21:05:56 by ptelo-de          #+#    #+#             */
-/*   Updated: 2024/04/22 19:29:15 by ptelo-de         ###   ########.fr       */
+/*   Updated: 2024/04/25 10:32:24 by ptelo-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {
-	char	*s1;
-	size_t	i;
+	unsigned char	*s1;
+	size_t			i;
 
-	s1 = (char *)s;
+	s1 = (unsigned char *)s;
 	i = 0;
 	while (i < n)
 	{
