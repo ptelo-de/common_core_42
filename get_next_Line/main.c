@@ -25,7 +25,7 @@ int main(void)
   count++;
   printf("[%d]:%s\n", count, line); //count is to show you the line numbers
   free(line);
-  line = NULL;
+  //line = NULL;
   }
   close(fd);
   return (0);
