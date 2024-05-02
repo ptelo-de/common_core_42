@@ -14,7 +14,7 @@ int main(void)
   fd = open("example.txt", O_RDONLY);
   if (fd == -1)
  {
-   printf("Error opening file\n");
+  printf("Error opening file\n");
   return (1);
  } 
   while(1)

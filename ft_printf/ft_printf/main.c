@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hepereir <hepereir@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ptelo-de <ptelo-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 19:03:57 by hepereir          #+#    #+#             */
-/*   Updated: 2024/05/01 16:41:08 by hepereir         ###   ########.fr       */
+/*   Updated: 2024/05/02 15:35:41 by ptelo-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -172,7 +172,7 @@ int	main(void)
 	printf("OUTPUT OG = %d\n", output_OG);
 	ft_printf("OUTPUT FT = %d\n", output_FT);
 
-	ft_printf("\n");
+	ft_printf("fodase\n");
 
 	output_OG = printf("OG -> %p\n", (void *)-2);
 	output_FT = ft_printf("FT -> %p\n", (void *)-2);

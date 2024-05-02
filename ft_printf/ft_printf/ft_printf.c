@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hepereir <hepereir@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ptelo-de <ptelo-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 19:03:50 by hepereir          #+#    #+#             */
-/*   Updated: 2024/05/01 16:43:23 by hepereir         ###   ########.fr       */
+/*   Updated: 2024/05/02 16:18:22 by ptelo-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,9 +46,9 @@ int	ft_print_aux(const char *str, int i, va_list args)
 	else if (str[i] == 'u')
 		count += ft_print_u(va_arg(args, unsigned int));
 	else if (str[i] == 'x')
-		count += ft_print_p(va_arg(args, long), "0123456789abcdef", 0);
+		count += ft_print_p(va_arg(args, unsigned int), "0123456789abcdef", 0);
 	else if (str[i] == 'X')
-		count += ft_print_p(va_arg(args, long), "0123456789ABCDEF", 0);
+		count += ft_print_p(va_arg(args, unsigned int), "0123456789ABCDEF", 0);
 	else if (str[i] == '%')
 		count += ft_putchar('%');
 	return (count);
