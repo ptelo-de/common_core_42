@@ -1,25 +1,34 @@
-# include <unistd.h>
-# include <stdlib.h>
-# include "get_next_line.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ptelo-de <ptelo-de@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/05/07 18:13:48 by ptelo-de          #+#    #+#             */
+/*   Updated: 2024/05/07 19:19:46 by ptelo-de         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
- void ft_bzero(void *s, size_t n);
- void *ft_calloc(size_t nmemb, size_t size);
+#include "get_next_line.h"
+#include <unistd.h>
 
-char  *get_next_line(int fd)
+char *get_next_line(int fd)
 {
-  int  bytes_read;
-  char *cup_buffer;
-  
-  cup_buffer = ft_calloc (BUFFER_SIZE + 1, sizeof(char));
-  if (cup_buffer == NULL)
-    return (NULL);
-  bytes_read = read(fd, cup_buffer, BUFFER_SIZE);
-  //printf("testing bytes read: %d\n",bytes_read);
-  if (bytes_read <= 0)
-  {
-    free(cup_buffer);
-    return(NULL);
-  }
-    
-  return (cup_buffer);
+	static char *buffer;
+	char *line;
+	int i;
+
+	line = buffer;
+	buffer = read(fd, buffer, BUFFER_SIZE);
+	i = 0;
+	while (buffer[i])
+	{
+		line[i] = buffer[i];
+		if (buffer[i] == '\n')
+		{
+			
+		}
+	}
+	
 }
