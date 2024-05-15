@@ -6,13 +6,13 @@
 /*   By: ptelo-de <ptelo-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/07 18:13:48 by ptelo-de          #+#    #+#             */
-/*   Updated: 2024/05/14 23:18:34 by ptelo-de         ###   ########.fr       */
+/*   Updated: 2024/05/15 19:34:07 by ptelo-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-int	read_and_check(char *buffer, unsigned int size, int fd)
+int	ft_read_and_check(char *buffer, unsigned int size, int fd)
 {
 	int	i;
 	int	bytesread;
@@ -28,7 +28,7 @@ int	read_and_check(char *buffer, unsigned int size, int fd)
 	}
 	return (1);
 }
-int	isfullline(char *buffer)
+int	ft_isfullline(char *buffer)
 {
 	int	i;
 
@@ -42,50 +42,60 @@ int	isfullline(char *buffer)
 	return(0);
 }
 
-// void	okspollish(char *buffer) 
-// {
-// 	int i;
-// 	int j;
+void	ft_okspollish(char *buffer) 
+{
+	int i;
+	int j;
 
-// 	i = 0;
-// 	while (buffer[i] && buffer[i] != '\n')
-// 	{
-// 		// printf("%c\n", buffer[i]);
-// 		buffer[i] = '\0';
-// 		i++;
-// 	}
+	i = 0;
+	while (buffer[i] && buffer[i] != '\n')
+	{
+		// printf("%c\n", buffer[i]);
+		buffer[i] = '\0';
+		i++;
+	}
 
-// 	if (buffer[i] == '\n') // so apaga uma quebra
-// 	{
-// 		buffer[i] = 0;
-// 		i++;
-// 	}
-// 	j = 0;
-// 	while (buffer[i])
-// 	{
-// 		buffer[j] = buffer[i];
-// 		j++;
-// 		i++;
-// 	}
-// }
+	if (buffer[i] == '\n') // so apaga uma quebra
+	{
+		buffer[i] = 0;
+		i++;
+	}
+	j = 0;
+	while (buffer[i])
+	{
+		buffer[j] = buffer[i];
+		buffer[i] = 0;
+		j++;
+		i++;
+	}
+}
 
 char	*get_next_line(int fd)
 {
-	static char buffer[BUFFER_SIZE + 1];
-	//static	char *buffer;
+	static char buffer[BUFFER_SIZE + 1]; //tollow("aaaaaa") BUFFER_SIZE = 0 quebra o codigo negativo tambem
+	//static	char *buffer = "Aaaaa":
 	char *line;
 	int bytesread = BUFFER_SIZE;
-	// if (read(fd, buffer, 0) == -1)// missing test fd and check if i can even read 0 bytes
-	// 	return (NULL);
-	line = NULL;
+	if (fd < 0 || BUFFER_SIZE <= 0) // nao da para controlar pois o buffersize e editavel no terminal 
+		return(NULL);
+		line = NULL;
+		line = ft_strjoin(line, buffer);
 	while (bytesread == BUFFER_SIZE)
 	{
 		bytesread = read(fd, buffer, BUFFER_SIZE); // ver se o read deevolve null terminated
+		if (bytesread == -1)
+		{
+			if(line)
+				free(line);
+			return(NULL);
+		}
 		line = ft_strjoin(line, buffer);
-		buffer = ft_strchr(buffer, '\n') + 1;
-		//printf("%s\n", line);
-		if (isfullline(line))
+		//printf("bytesread: %d\nbuffer: %s\n",bytesread, buffer);
+		//write(1, &buffer, sizeof(buffer) - 1);
+		//buffer = ft_strchr(buffer, '\n') + 1;
+		if (ft_isfullline(line))
 			break;
 	}
+		ft_okspollish(buffer);
 	return (line);
 }
