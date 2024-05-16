@@ -6,7 +6,7 @@
 /*   By: ptelo-de <ptelo-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/07 18:13:48 by ptelo-de          #+#    #+#             */
-/*   Updated: 2024/05/15 19:34:07 by ptelo-de         ###   ########.fr       */
+/*   Updated: 2024/05/16 19:14:40 by ptelo-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ void	ft_okspollish(char *buffer)
 		i++;
 	}
 	j = 0;
-	while (buffer[i])
+	while (buffer[i])//falha quando buffersize e maior do que o numero de byter que eu quero manter no buffer
 	{
 		buffer[j] = buffer[i];
 		buffer[i] = 0;
@@ -72,17 +72,18 @@ void	ft_okspollish(char *buffer)
 
 char	*get_next_line(int fd)
 {
-	static char buffer[BUFFER_SIZE + 1]; //tollow("aaaaaa") BUFFER_SIZE = 0 quebra o codigo negativo tambem
-	//static	char *buffer = "Aaaaa":
+	static char buffer[BUFFER_SIZE + 1]; //BUFFER_SIZE = 0 quebra o codigo negativo tambem
 	char *line;
-	int bytesread = BUFFER_SIZE;
+	int bytesread;
+
 	if (fd < 0 || BUFFER_SIZE <= 0) // nao da para controlar pois o buffersize e editavel no terminal 
 		return(NULL);
-		line = NULL;
-		line = ft_strjoin(line, buffer);
-	while (bytesread == BUFFER_SIZE)
+	bytesread = BUFFER_SIZE;
+	line = NULL;
+	while (bytesread != 0)//read retorna 0 quando encontra EOF
 	{
-		bytesread = read(fd, buffer, BUFFER_SIZE); // ver se o read deevolve null terminated
+		if (!*buffer)
+			bytesread = read(fd, buffer, BUFFER_SIZE);
 		if (bytesread == -1)
 		{
 			if(line)
@@ -90,12 +91,18 @@ char	*get_next_line(int fd)
 			return(NULL);
 		}
 		line = ft_strjoin(line, buffer);
-		//printf("bytesread: %d\nbuffer: %s\n",bytesread, buffer);
-		//write(1, &buffer, sizeof(buffer) - 1);
-		//buffer = ft_strchr(buffer, '\n') + 1;
+		if (!*line)	
+		{
+			return(NULL);
+		}
+		ft_okspollish(buffer);
 		if (ft_isfullline(line))
 			break;
 	}
-		ft_okspollish(buffer);
 	return (line);
 }
+/*RAZOES PARA BUFFER SER UM ARRAY:
+1) Conserva sempre o ultimo \0 deste a declaracao
+2) Ao contrario da string literal, tem um tamanho fixo de elementos,
+3) Permiteme alterar e nao apenas aceder a cada elemento da string
+*/

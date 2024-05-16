@@ -6,7 +6,7 @@
 /*   By: ptelo-de <ptelo-de@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/07 15:51:41 by ptelo-de          #+#    #+#             */
-/*   Updated: 2024/05/14 23:07:15 by ptelo-de         ###   ########.fr       */
+/*   Updated: 2024/05/16 19:20:05 by ptelo-de         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,23 +49,17 @@ char	*ft_strjoin(char *s1, char *s2)
 	if (join == 0)
 		return (0);
 	i = 0;
-	if(s1) // cenas do jorge
-	{		
-		while (s1[i])
+		while (s1 && s1[i])
 		{
 			join[i] = s1[i];
 			i++;
 		}
-	}
 	j = 0;
 	while (s2[j])
 	{
 		join[i + j] = s2[j];
-		if (s2[j] == '\n')
-		{
-			j++;
+		if (s2[j] == '\n' && j++)
 			break;
-		}
 		j++;
 	}
 	join[i + j] = 0;
@@ -73,53 +67,3 @@ char	*ft_strjoin(char *s1, char *s2)
 	return (join);
 }
 
-// size_t	ft_strlcpy(char *dest, const char *src, size_t size)
-// {
-// 	size_t	i;
-// 	size_t	lsrc;
-
-// 	lsrc = ft_strlen(src); 
-// 	if (size == 0)
-// 		return (lsrc);
-// 	i = 0;
-// 	while (i < (size - 1) && src[i])
-// 	{
-// 		dest[i] = src[i];
-// 		i++;
-// 	}
-// 	dest[i] = 0;
-// 	return (lsrc);
-// }
-
-char	*ft_strchr(const char *s, int c)
-{
-	size_t	i;
-	size_t	ls;
-
-	i = 0;
-	ls = ft_strlen(s);
-	if ((unsigned char)c == '\0')
-		return ((char *)(s + (int)(ft_strlen(s))));
-	while (i <= ls)
-	{
-		if (s[i] == (unsigned char)c)
-			return ((char *)(s + i));
-		i++;
-	}
-	return (NULL);
-}
-
-// void	*ft_calloc(size_t nmemb, size_t size)
-// {
-// 	void	*array;
-// 	size_t	max;
-
-// 	max = nmemb * size;
-// 	if (nmemb && size && max / size != nmemb)
-// 		return (NULL);
-// 	array = malloc(max);
-// 	if (!array)
-// 		return (NULL);
-// 	ft_bzero(array, max);
-// 	return (array);
-// }
