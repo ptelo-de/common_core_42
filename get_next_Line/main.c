@@ -7,20 +7,42 @@
 int main(void)
 {
 	char *line= "aaa";
-	int i=0;
+	static int i=0;
 	int fd = open("example.txt", O_RDONLY | O_CREAT);
 	if (fd <= 2)
 	{
   		printf("ocurreu um erro");
   		return(1);
 	}
-	while (line)//para imprimir o null
+	while ((line = get_next_line(0)))
 	{
-		line = get_next_line(fd);
-  		printf("%s",line);
-  		if(!line)
-			break;
+  		printf("[%d] %s",i,line);
+
+		free(line);
+		i++;
 	}
+	//free(line);
+	//printf("%d\n", fd);
 	close(fd);
 	return(0);
 }
+// int main(void)
+// {
+// 	char *line= "aaa";
+// 	int i=0;
+// 	int fd = open("example.txt", O_RDONLY | O_CREAT);
+// 	if (fd <= 2)
+// 	{
+//   		printf("ocurreu um erro");
+//   		return(1);
+// 	}
+// 	while (line)
+// 	{
+//	line = get_next_line(fd);
+//   		printf("%s",line);
+//   		if(!line)
+// 			break;
+// 	}
+// 	close(fd);
+// 	return(0);
+// }
