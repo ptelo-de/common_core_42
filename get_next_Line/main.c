@@ -1,30 +1,32 @@
 
-#include <unistd.h> //has close() in it
+#include "get_next_line.h"
 #include <fcntl.h>
 #include <stdlib.h>
-#include "get_next_line.h"
+#include <unistd.h> //has close() in it
 
-int main(void)
+int	main(void)
 {
-	char *line= "aaa";
-	static int i=0;
-	int fd = open("example.txt", O_RDONLY | O_CREAT);
+	char		*line;
+	static int	i = 0;
+	int			fd;
+
+	line = "aaa";
+	fd = open("example.txt", O_RDONLY | O_CREAT);
 	if (fd <= 2)
 	{
-  		printf("ocurreu um erro");
-  		return(1);
+		printf("ocurreu um erro");
+		return (1);
 	}
 	while ((line = get_next_line(0)))
 	{
-  		printf("[%d] %s",i,line);
-
+		printf("[%d] %s", i, line);
 		free(line);
 		i++;
 	}
-	//free(line);
-	//printf("%d\n", fd);
+	// free(line);
+	// printf("%d\n", fd);
 	close(fd);
-	return(0);
+	return (0);
 }
 // int main(void)
 // {
@@ -41,7 +43,7 @@ int main(void)
 //	line = get_next_line(fd);
 //   		printf("%s",line);
 //   		if(!line)
-// 			break;
+// 			break ;
 // 	}
 // 	close(fd);
 // 	return(0);
